@@ -10,7 +10,6 @@
 		5235A5031B5F6B550034FA7B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5235A5021B5F6B550034FA7B /* main.m */; };
 		5235A5061B5F6B550034FA7B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5235A5051B5F6B550034FA7B /* AppDelegate.m */; };
 		5235A5091B5F6B550034FA7B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5235A5081B5F6B550034FA7B /* ViewController.m */; };
-		5235A50C1B5F6B550034FA7B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5235A50A1B5F6B550034FA7B /* Main.storyboard */; };
 		5235A50E1B5F6B550034FA7B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5235A50D1B5F6B550034FA7B /* Images.xcassets */; };
 		5235A5111B5F6B560034FA7B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5235A50F1B5F6B560034FA7B /* LaunchScreen.xib */; };
 		5235A51D1B5F6B560034FA7B /* BlocstagramTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5235A51C1B5F6B560034FA7B /* BlocstagramTests.m */; };
@@ -34,7 +33,6 @@
 		5235A5051B5F6B550034FA7B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		5235A5071B5F6B550034FA7B /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		5235A5081B5F6B550034FA7B /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		5235A50B1B5F6B550034FA7B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5235A50D1B5F6B550034FA7B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		5235A5101B5F6B560034FA7B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		5235A5161B5F6B560034FA7B /* BlocstagramTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BlocstagramTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -85,7 +83,6 @@
 				5235A5051B5F6B550034FA7B /* AppDelegate.m */,
 				5235A5071B5F6B550034FA7B /* ViewController.h */,
 				5235A5081B5F6B550034FA7B /* ViewController.m */,
-				5235A50A1B5F6B550034FA7B /* Main.storyboard */,
 				5235A50D1B5F6B550034FA7B /* Images.xcassets */,
 				5235A50F1B5F6B560034FA7B /* LaunchScreen.xib */,
 				5235A5001B5F6B550034FA7B /* Supporting Files */,
@@ -199,7 +196,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5235A50C1B5F6B550034FA7B /* Main.storyboard in Resources */,
 				5235A5111B5F6B560034FA7B /* LaunchScreen.xib in Resources */,
 				5235A50E1B5F6B550034FA7B /* Images.xcassets in Resources */,
 			);
@@ -244,14 +240,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		5235A50A1B5F6B550034FA7B /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				5235A50B1B5F6B550034FA7B /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		5235A50F1B5F6B560034FA7B /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -418,6 +406,7 @@
 				5235A5221B5F6B560034FA7B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5235A5231B5F6B560034FA7B /* Build configuration list for PBXNativeTarget "BlocstagramTests" */ = {
 			isa = XCConfigurationList;
@@ -426,6 +415,7 @@
 				5235A5251B5F6B560034FA7B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
