@@ -22,6 +22,9 @@
 		5235A53B1B5F7D1F0034FA7B /* 7.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5235A5311B5F7D1F0034FA7B /* 7.jpg */; };
 		5235A53C1B5F7D1F0034FA7B /* 4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5235A5321B5F7D1F0034FA7B /* 4.jpg */; };
 		5235A53D1B5F7D1F0034FA7B /* 3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5235A5331B5F7D1F0034FA7B /* 3.jpg */; };
+		5235A5401B6066AE0034FA7B /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 5235A53F1B6066AE0034FA7B /* User.m */; };
+		5235A5431B6067D60034FA7B /* Media.m in Sources */ = {isa = PBXBuildFile; fileRef = 5235A5421B6067D60034FA7B /* Media.m */; };
+		5235A5461B60683F0034FA7B /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = 5235A5451B60683F0034FA7B /* Comment.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +59,12 @@
 		5235A5311B5F7D1F0034FA7B /* 7.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 7.jpg; sourceTree = "<group>"; };
 		5235A5321B5F7D1F0034FA7B /* 4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 4.jpg; sourceTree = "<group>"; };
 		5235A5331B5F7D1F0034FA7B /* 3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 3.jpg; sourceTree = "<group>"; };
+		5235A53E1B6066AE0034FA7B /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		5235A53F1B6066AE0034FA7B /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		5235A5411B6067D60034FA7B /* Media.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Media.h; sourceTree = "<group>"; };
+		5235A5421B6067D60034FA7B /* Media.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Media.m; sourceTree = "<group>"; };
+		5235A5441B60683F0034FA7B /* Comment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Comment.h; sourceTree = "<group>"; };
+		5235A5451B60683F0034FA7B /* Comment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Comment.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +114,12 @@
 				5235A5001B5F6B550034FA7B /* Supporting Files */,
 				5235A5261B5F7A710034FA7B /* ImagesTableViewController.h */,
 				5235A5271B5F7A710034FA7B /* ImagesTableViewController.m */,
+				5235A53E1B6066AE0034FA7B /* User.h */,
+				5235A53F1B6066AE0034FA7B /* User.m */,
+				5235A5411B6067D60034FA7B /* Media.h */,
+				5235A5421B6067D60034FA7B /* Media.m */,
+				5235A5441B60683F0034FA7B /* Comment.h */,
+				5235A5451B60683F0034FA7B /* Comment.m */,
 			);
 			path = Blocstagram;
 			sourceTree = "<group>";
@@ -259,6 +274,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5235A5401B6066AE0034FA7B /* User.m in Sources */,
+				5235A5461B60683F0034FA7B /* Comment.m in Sources */,
+				5235A5431B6067D60034FA7B /* Media.m in Sources */,
 				5235A5061B5F6B550034FA7B /* AppDelegate.m in Sources */,
 				5235A5031B5F6B550034FA7B /* main.m in Sources */,
 				5235A5281B5F7A710034FA7B /* ImagesTableViewController.m in Sources */,
