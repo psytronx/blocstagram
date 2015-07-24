@@ -128,6 +128,12 @@ static NSParagraphStyle *paragraphStyle;
     [mutableUsernameAndCaptionString addAttribute:NSFontAttributeName value:[boldFont fontWithSize:usernameFontSize] range:usernameRange];
     [mutableUsernameAndCaptionString addAttribute:NSForegroundColorAttributeName value:linkColor range:usernameRange];
     
+    // Increase kerning
+    NSRange captionRange = [baseString rangeOfString:self.mediaItem.caption];
+    [mutableUsernameAndCaptionString addAttribute:NSKernAttributeName value:@(2) range:captionRange];
+//    NSNumber *defaultKerning = (NSNumber *)[mutableUsernameAndCaptionString attribute:NSKernAttributeName atIndex:captionRange.location effectiveRange: &captionRange];
+//    [mutableUsernameAndCaptionString addAttribute:NSKernAttributeName value:@([defaultKerning integerValue]*1.5) range:captionRange];
+    
     return mutableUsernameAndCaptionString;
 }
 
