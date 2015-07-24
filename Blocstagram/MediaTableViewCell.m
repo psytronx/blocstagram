@@ -131,6 +131,7 @@ static NSParagraphStyle *paragraphStyle;
     // Increase kerning
     NSRange captionRange = [baseString rangeOfString:self.mediaItem.caption];
     [mutableUsernameAndCaptionString addAttribute:NSKernAttributeName value:@(2) range:captionRange];
+// LEARN -- How to get current attribute? Below code doesn't work; defaultKerning is getting set to nil.
 //    NSNumber *defaultKerning = (NSNumber *)[mutableUsernameAndCaptionString attribute:NSKernAttributeName atIndex:captionRange.location effectiveRange: &captionRange];
 //    [mutableUsernameAndCaptionString addAttribute:NSKernAttributeName value:@([defaultKerning integerValue]*1.5) range:captionRange];
     
@@ -140,13 +141,8 @@ static NSParagraphStyle *paragraphStyle;
 - (NSAttributedString *) commentString {
     NSMutableAttributedString *commentString = [[NSMutableAttributedString alloc] init];
     
-    NSMutableParagraphStyle *paragraphStyleRightAlign = [[NSMutableParagraphStyle alloc] init];
+    NSMutableParagraphStyle *paragraphStyleRightAlign = [paragraphStyle mutableCopy];
     paragraphStyleRightAlign.alignment = NSTextAlignmentRight;
-    paragraphStyleRightAlign.headIndent = 20.0;
-    paragraphStyleRightAlign.firstLineHeadIndent = 20.0;
-    paragraphStyleRightAlign.tailIndent = -20.0;
-    paragraphStyleRightAlign.paragraphSpacingBefore = 5;
-
     
     int i = 0;
     for (Comment *comment in self.mediaItem.comments) {
