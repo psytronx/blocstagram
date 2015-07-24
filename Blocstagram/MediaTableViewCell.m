@@ -140,6 +140,14 @@ static NSParagraphStyle *paragraphStyle;
 - (NSAttributedString *) commentString {
     NSMutableAttributedString *commentString = [[NSMutableAttributedString alloc] init];
     
+    NSMutableParagraphStyle *paragraphStyleRightAlign = [[NSMutableParagraphStyle alloc] init];
+    paragraphStyleRightAlign.alignment = NSTextAlignmentRight;
+    paragraphStyleRightAlign.headIndent = 20.0;
+    paragraphStyleRightAlign.firstLineHeadIndent = 20.0;
+    paragraphStyleRightAlign.tailIndent = -20.0;
+    paragraphStyleRightAlign.paragraphSpacingBefore = 5;
+
+    
     int i = 0;
     for (Comment *comment in self.mediaItem.comments) {
         // Make a string that says "username comment" followed by a line break
@@ -154,6 +162,9 @@ static NSParagraphStyle *paragraphStyle;
         [oneCommentString addAttribute:NSForegroundColorAttributeName value:linkColor range:usernameRange];
         if (i == 0){
             [oneCommentString addAttribute:NSBackgroundColorAttributeName value:[UIColor orangeColor] range:(NSRange){0, [baseString length]}];
+        }
+        if (i%2 == 1){
+            [oneCommentString addAttribute:NSParagraphStyleAttributeName value:paragraphStyleRightAlign range:NSMakeRange(0, [baseString length])];
         }
         
         [commentString appendAttributedString:oneCommentString];
