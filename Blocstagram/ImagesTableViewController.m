@@ -38,7 +38,12 @@
     
     // Register Key Value Observation of mediaItems
     [[DataSource sharedInstance] addObserver:self forKeyPath:@"mediaItems" options:0 context:nil];
+    
+    // Initialize refreshControl and enable drag-to-refresh
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    [self.refreshControl addTarget:self action:@selector(refreshControlDidFire:) forControlEvents:UIControlEventValueChanged];
 
+    // Register cell class for tableView
     [self.tableView registerClass:[MediaTableViewCell class] forCellReuseIdentifier:@"mediaCell"];
     
 }
@@ -125,6 +130,30 @@
             // Tell the table view that we're done telling it about changes, and to complete the animation
             [self.tableView endUpdates];
         }
+    }
+}
+
+#pragma mark - Drag-to-Refresh
+
+- (void) refreshControlDidFire:(UIRefreshControl *) sender {
+    [[DataSource sharedInstance] requestNewItemsWithCompletionHandler:^(NSError *error) {
+//        [sender endRefreshing];
+    }];
+}
+
+#pragma mark - UIScrollViewDelegate and Infinite scroll
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    [self infiniteScrollIfNecessary];
+}
+
+- (void) infiniteScrollIfNecessary {
+    
+    NSIndexPath *bottomIndexPath = [[self.tableView indexPathsForVisibleRows] lastObject];
+    
+    if (bottomIndexPath && bottomIndexPath.row == [DataSource sharedInstance].mediaItems.count - 1) {
+        // The very last cell is on screen
+        [[DataSource sharedInstance] requestOldItemsWithCompletionHandler:nil];
     }
 }
 
