@@ -23,6 +23,10 @@ NSString *const LoginViewControllerDidGetAccessTokenNotification = @"LoginViewCo
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    // Add back button to nav bar
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:self action:@selector(backButtonPressed)];
+    self.navigationItem.leftBarButtonItem.enabled = NO;
+    
     // Add webView as subview
     UIWebView *webView = [[UIWebView alloc] init];
     webView.delegate = self;
@@ -87,7 +91,19 @@ NSString *const LoginViewControllerDidGetAccessTokenNotification = @"LoginViewCo
         return NO;
     }
     
+    if (self.webView.canGoBack){
+        self.navigationItem.leftBarButtonItem.enabled = YES;
+    } else {
+        self.navigationItem.leftBarButtonItem.enabled = NO;
+    }
+    
     return YES;
+}
+
+- (void) backButtonPressed {
+    if (self.webView.canGoBack){
+        [self.webView goBack];
+    }
 }
 
 /*
