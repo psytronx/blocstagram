@@ -6,6 +6,7 @@
 //  Copyright (c) 2015 Logical Dimension. All rights reserved.
 //
 
+#import <UICKeyChainStore.h>
 #import "DataSource.h"
 #import "User.h"
 #import "Media.h"
@@ -34,7 +35,13 @@
     self = [super init];
     
     if (self) {
-        [self registerForAccessTokenNotification];
+        self.accessToken = [UICKeyChainStore stringForKey:@"access token"];
+        
+        if (!self.accessToken) {
+            [self registerForAccessTokenNotification];
+        } else {
+            [self populateDataWithParameters:nil completionHandler:nil];
+        }
     }
     
     return self;
@@ -44,6 +51,7 @@
 - (void) registerForAccessTokenNotification {
     [[NSNotificationCenter defaultCenter] addObserverForName:LoginViewControllerDidGetAccessTokenNotification object:nil queue:nil usingBlock:^(NSNotification *note) {
         self.accessToken = note.object;
+        [UICKeyChainStore setString:self.accessToken forKey:@"access token"];
         
         // Got a token; populate the initial data
         [self populateDataWithParameters:nil completionHandler:nil];
