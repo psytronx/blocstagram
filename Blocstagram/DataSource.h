@@ -17,6 +17,7 @@ typedef void (^NewItemCompletionBlock)(NSError *error);
 @property (nonatomic, strong, readonly) NSArray *mediaItems;
 @property (nonatomic, assign) BOOL isRefreshing;
 @property (nonatomic, assign) BOOL isLoadingOlderItems;
+@property (nonatomic, assign) BOOL thereAreNoMoreOlderMessages;
 @property (nonatomic, strong, readonly) NSString *accessToken;
 
 + (instancetype) sharedInstance;
