@@ -39,10 +39,19 @@
     // Register Key Value Observation of mediaItems
     [[DataSource sharedInstance] addObserver:self forKeyPath:@"mediaItems" options:0 context:nil];
     
-    // Initialize refreshControl and enable drag-to-refresh
+    // Initialize refreshControl and enable pull-to-refresh
     self.refreshControl = [[UIRefreshControl alloc] init];
     [self.refreshControl addTarget:self action:@selector(refreshControlDidFire:) forControlEvents:UIControlEventValueChanged];
 
+    // Register Notification Handler for initial loading of cached data. Check for new media from Instagram API.
+    [[NSNotificationCenter defaultCenter] addObserverForName:InitialCacheLoadDoneNotification
+                                                      object:nil
+                                                       queue:nil
+                                                  usingBlock:^(NSNotification *note) {
+                                                      // Trigger pull-to-refresh
+                                                      [self.refreshControl sendActionsForControlEvents:UIControlEventValueChanged];
+                                                  }];
+    
     // Register cell class for tableView
     [self.tableView registerClass:[MediaTableViewCell class] forCellReuseIdentifier:@"mediaCell"];
     

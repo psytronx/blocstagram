@@ -14,6 +14,8 @@ typedef void (^NewItemCompletionBlock)(NSError *error);
 
 @interface DataSource : NSObject
 
+extern NSString *const InitialCacheLoadDoneNotification;
+
 @property (nonatomic, strong, readonly) NSArray *mediaItems;
 @property (nonatomic, assign) BOOL isRefreshing;
 @property (nonatomic, assign) BOOL isLoadingOlderItems;

@@ -22,6 +22,8 @@
 
 @implementation DataSource
 
+NSString *const InitialCacheLoadDoneNotification = @"InitialCacheLoadDoneNotification"; // Dummy string for NSNotification
+
 + (instancetype) sharedInstance {
     static dispatch_once_t once;
     static id sharedInstance;
@@ -54,6 +56,9 @@
                         for (Media* mediaItem in self.mediaItems) {
                             [self downloadImageForMediaItem:mediaItem];
                         }
+                        
+                        // Post notification that, in init, archived data has finished loading
+                        [[NSNotificationCenter defaultCenter] postNotificationName:InitialCacheLoadDoneNotification object:nil];
                         
                     } else {
                         [self populateDataWithParameters:nil completionHandler:nil];
