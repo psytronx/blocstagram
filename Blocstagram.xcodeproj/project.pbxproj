@@ -27,6 +27,7 @@
 		5235A5461B60683F0034FA7B /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = 5235A5451B60683F0034FA7B /* Comment.m */; };
 		5235A5491B606A6F0034FA7B /* DataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 5235A5481B606A6F0034FA7B /* DataSource.m */; };
 		5235A54C1B61839A0034FA7B /* MediaTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5235A54B1B61839A0034FA7B /* MediaTableViewCell.m */; };
+		5252DB161B6B3A7B00262619 /* MediaFullScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5252DB151B6B3A7B00262619 /* MediaFullScreenViewController.m */; };
 		52854AD91B6815310041EC46 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52854AD81B6815310041EC46 /* LoginViewController.m */; };
 		8063C68BB2EA9575A62919E5 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DBAB016CE54783F838F5794F /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -73,6 +74,8 @@
 		5235A5481B606A6F0034FA7B /* DataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataSource.m; sourceTree = "<group>"; };
 		5235A54A1B61839A0034FA7B /* MediaTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaTableViewCell.h; sourceTree = "<group>"; };
 		5235A54B1B61839A0034FA7B /* MediaTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaTableViewCell.m; sourceTree = "<group>"; };
+		5252DB141B6B3A7B00262619 /* MediaFullScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaFullScreenViewController.h; sourceTree = "<group>"; };
+		5252DB151B6B3A7B00262619 /* MediaFullScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaFullScreenViewController.m; sourceTree = "<group>"; };
 		52854AD71B6815310041EC46 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		52854AD81B6815310041EC46 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		61C49DA8E24A1BBC5E9C611C /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -132,6 +135,8 @@
 				5235A5271B5F7A710034FA7B /* ImagesTableViewController.m */,
 				5235A54A1B61839A0034FA7B /* MediaTableViewCell.h */,
 				5235A54B1B61839A0034FA7B /* MediaTableViewCell.m */,
+				5252DB141B6B3A7B00262619 /* MediaFullScreenViewController.h */,
+				5252DB151B6B3A7B00262619 /* MediaFullScreenViewController.m */,
 				52854AD71B6815310041EC46 /* LoginViewController.h */,
 				52854AD81B6815310041EC46 /* LoginViewController.m */,
 				5235A5471B606A6F0034FA7B /* DataSource.h */,
@@ -348,6 +353,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5252DB161B6B3A7B00262619 /* MediaFullScreenViewController.m in Sources */,
 				5235A5401B6066AE0034FA7B /* User.m in Sources */,
 				5235A5461B60683F0034FA7B /* Comment.m in Sources */,
 				5235A54C1B61839A0034FA7B /* MediaTableViewCell.m in Sources */,
