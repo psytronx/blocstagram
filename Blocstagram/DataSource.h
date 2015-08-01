@@ -27,5 +27,6 @@ typedef void (^NewItemCompletionBlock)(NSError *error);
 
 - (void) requestNewItemsWithCompletionHandler:(NewItemCompletionBlock)completionHandler;
 - (void) requestOldItemsWithCompletionHandler:(NewItemCompletionBlock)completionHandler;
+- (void) refreshImageForMediaItem:(Media *)mediaItem completionHandler:(NewItemCompletionBlock)completionHandler;
 
 @end

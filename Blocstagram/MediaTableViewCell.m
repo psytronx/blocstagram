@@ -236,6 +236,7 @@ static NSParagraphStyle *paragraphStyle;
 
 - (void) doubleTapFired:(UITapGestureRecognizer *)sender {
     NSLog(@"double tap fired");
+    [self.delegate didDoubleTapMediaTableViewCell:self];
 }
 
 #pragma mark - UIGestureRecognizerDelegate

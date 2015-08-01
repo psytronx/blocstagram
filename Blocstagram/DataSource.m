@@ -95,8 +95,9 @@
     }];
 }
 
-#pragma mark - Pull to refresh and Infinite scroll helper methods, using completion block handling
+#pragma mark - Public methods
 
+// For pull-to-refresh
 - (void) requestNewItemsWithCompletionHandler:(NewItemCompletionBlock)completionHandler {
     self.thereAreNoMoreOlderMessages = NO;
     if (self.isRefreshing == NO) {
@@ -119,6 +120,7 @@
     }
 }
 
+// For infinite scroll
 - (void) requestOldItemsWithCompletionHandler:(NewItemCompletionBlock)completionHandler {
     if (self.isLoadingOlderItems == NO && self.thereAreNoMoreOlderMessages == NO){
         self.isLoadingOlderItems = YES;
@@ -137,6 +139,11 @@
             }
         }];
     }
+}
+
+// For image refresh
+- (void) refreshImageForMediaItem:(Media *)mediaItem completionHandler:(NewItemCompletionBlock)completionHandler{
+    [self downloadImageForMediaItem:mediaItem isRefresh:YES completionHandler:completionHandler];
 }
 
 #pragma mark - Key/Value Observing
@@ -316,7 +323,13 @@
 }
 
 - (void) downloadImageForMediaItem:(Media *)mediaItem {
-    if (mediaItem.mediaURL && !mediaItem.image) {
+    // Set default values
+    [self downloadImageForMediaItem:(Media *)mediaItem isRefresh:NO completionHandler:^(NSError *error) {
+        NSLog(@"Error downloading image: %@", error);
+    }];
+}
+- (void) downloadImageForMediaItem:(Media *)mediaItem isRefresh:(BOOL)isRefresh completionHandler:(NewItemCompletionBlock)completionHandler{
+    if (mediaItem.mediaURL && (!mediaItem.image || isRefresh)) {
         
         /* Using AFNetworking */
         [self.instagramOperationManager GET:mediaItem.mediaURL.absoluteString
@@ -329,9 +342,10 @@
                                             [mutableArrayWithKVO replaceObjectAtIndex:index withObject:mediaItem];
                                             
                                             [self saveImages];
+                                            completionHandler(nil);
                                         }
                                     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                                        NSLog(@"Error downloading image: %@", error);
+                                        completionHandler(error);
                                     }];
         
         

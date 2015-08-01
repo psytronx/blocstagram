@@ -192,6 +192,16 @@
         [self presentViewController:activityVC animated:YES completion:nil];
     }
 }
+
+- (void) didDoubleTapMediaTableViewCell:(MediaTableViewCell *)cell {
+    [[DataSource sharedInstance] refreshImageForMediaItem:cell.mediaItem completionHandler:^(NSError *error){
+        if (error){
+            NSLog(@"Image refresh failed for post id %@. Error: %@.", cell.mediaItem.idNumber, error);
+        } else {
+            NSLog(@"Image refresh succeeded for post id %@. KVO should be taking care of the rest now.", cell.mediaItem.idNumber);
+        }
+    }];
+}
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
