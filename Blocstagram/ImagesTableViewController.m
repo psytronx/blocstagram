@@ -15,6 +15,7 @@
 #import "MediaFullScreenViewController.h"
 
 @interface ImagesTableViewController () <MediaTableViewCellDelegate>
+@property (nonatomic, assign) BOOL scrollViewIsDecelerating;
 @end
 
 @implementation ImagesTableViewController
@@ -47,6 +48,13 @@
     // Register cell class for tableView
     [self.tableView registerClass:[MediaTableViewCell class] forCellReuseIdentifier:@"mediaCell"];
     
+}
+
+- (void)viewDidAppear:(BOOL)animated{
+    NSLog(@"View did appear");
+    for (NSIndexPath *indexPath in [self.tableView indexPathsForVisibleRows]){
+        [self downloadImageForRowAtIndexPath:indexPath];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -102,11 +110,21 @@
 }
 
 - (void) tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+// Moved code out to showImageForRowAtIndexPath: and calling that from scrollViewDidScroll: instead of here
+//    if (self.scrollViewIsDecelerating) {
+//        [self showImageForRowAtIndexPath: indexPath];
+//    }
+}
+
+- (void) downloadImageForRowAtIndexPath: (NSIndexPath *) indexPath {
+    
     Media *mediaItem = [DataSource sharedInstance].mediaItems[indexPath.row];
     if (mediaItem.downloadState == MediaDownloadStateNeedsImage) {
         [[DataSource sharedInstance] downloadImageForMediaItem:mediaItem];
     }
+    
 }
+
 
 #pragma mark - KVO
 
@@ -162,7 +180,17 @@
 #pragma mark - UIScrollViewDelegate and Infinite scroll
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    
+    NSLog(@"scrollViewDidScroll");
+    
+    if (self.scrollViewIsDecelerating) {
+        for (NSIndexPath *indexPath in [self.tableView indexPathsForVisibleRows]){
+            [self downloadImageForRowAtIndexPath:indexPath];
+        }
+    }
+    
     [self infiniteScrollIfNecessary];
+    
 }
 
 - (void) infiniteScrollIfNecessary {
@@ -173,6 +201,20 @@
         // The very last cell is on screen
         [[DataSource sharedInstance] requestOldItemsWithCompletionHandler:nil];
     }
+}
+
+- (void) scrollViewWillBeginDecelerating:(UIScrollView *)scrollView{
+    self.scrollViewIsDecelerating = YES;
+    NSLog(@"scrollViewWillBeginDecelerating");
+}
+
+- (void) scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
+    self.scrollViewIsDecelerating = NO;
+    NSLog(@"scrollViewDidEndDecelerating");
+}
+
+- (void) scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView{
+    NSLog(@"scrollViewDidEndScrollingAnimation");
 }
 
 #pragma mark - MediaTableViewCellDelegate
