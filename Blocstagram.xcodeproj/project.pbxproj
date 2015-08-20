@@ -29,6 +29,8 @@
 		5235A54C1B61839A0034FA7B /* MediaTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5235A54B1B61839A0034FA7B /* MediaTableViewCell.m */; };
 		5252DB161B6B3A7B00262619 /* MediaFullScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5252DB151B6B3A7B00262619 /* MediaFullScreenViewController.m */; };
 		527EA9BC1B845A1D00FAACA7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 527EA9BB1B845A1D00FAACA7 /* Images.xcassets */; };
+		527EA9BF1B845F2C00FAACA7 /* CircleSpinnerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 527EA9BE1B845F2C00FAACA7 /* CircleSpinnerView.m */; };
+		527EA9C21B84DF2600FAACA7 /* LikeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 527EA9C11B84DF2600FAACA7 /* LikeButton.m */; };
 		52854AD91B6815310041EC46 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52854AD81B6815310041EC46 /* LoginViewController.m */; };
 		8063C68BB2EA9575A62919E5 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DBAB016CE54783F838F5794F /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -78,6 +80,10 @@
 		5252DB141B6B3A7B00262619 /* MediaFullScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaFullScreenViewController.h; sourceTree = "<group>"; };
 		5252DB151B6B3A7B00262619 /* MediaFullScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaFullScreenViewController.m; sourceTree = "<group>"; };
 		527EA9BB1B845A1D00FAACA7 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		527EA9BD1B845F2C00FAACA7 /* CircleSpinnerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleSpinnerView.h; sourceTree = "<group>"; };
+		527EA9BE1B845F2C00FAACA7 /* CircleSpinnerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircleSpinnerView.m; sourceTree = "<group>"; };
+		527EA9C01B84DF2600FAACA7 /* LikeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LikeButton.h; path = ../LikeButton.h; sourceTree = "<group>"; };
+		527EA9C11B84DF2600FAACA7 /* LikeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LikeButton.m; path = ../LikeButton.m; sourceTree = "<group>"; };
 		52854AD71B6815310041EC46 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		52854AD81B6815310041EC46 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		61C49DA8E24A1BBC5E9C611C /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -133,6 +139,10 @@
 				5235A5051B5F6B550034FA7B /* AppDelegate.m */,
 				5235A50F1B5F6B560034FA7B /* LaunchScreen.xib */,
 				5235A5261B5F7A710034FA7B /* ImagesTableViewController.h */,
+				527EA9C01B84DF2600FAACA7 /* LikeButton.h */,
+				527EA9C11B84DF2600FAACA7 /* LikeButton.m */,
+				527EA9BD1B845F2C00FAACA7 /* CircleSpinnerView.h */,
+				527EA9BE1B845F2C00FAACA7 /* CircleSpinnerView.m */,
 				5235A5271B5F7A710034FA7B /* ImagesTableViewController.m */,
 				5235A54A1B61839A0034FA7B /* MediaTableViewCell.h */,
 				5235A54B1B61839A0034FA7B /* MediaTableViewCell.m */,
@@ -358,12 +368,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				5252DB161B6B3A7B00262619 /* MediaFullScreenViewController.m in Sources */,
+				527EA9BF1B845F2C00FAACA7 /* CircleSpinnerView.m in Sources */,
 				5235A5401B6066AE0034FA7B /* User.m in Sources */,
 				5235A5461B60683F0034FA7B /* Comment.m in Sources */,
 				5235A54C1B61839A0034FA7B /* MediaTableViewCell.m in Sources */,
 				5235A5431B6067D60034FA7B /* Media.m in Sources */,
 				5235A5061B5F6B550034FA7B /* AppDelegate.m in Sources */,
 				52854AD91B6815310041EC46 /* LoginViewController.m in Sources */,
+				527EA9C21B84DF2600FAACA7 /* LikeButton.m in Sources */,
 				5235A5491B606A6F0034FA7B /* DataSource.m in Sources */,
 				5235A5031B5F6B550034FA7B /* main.m in Sources */,
 				5235A5281B5F7A710034FA7B /* ImagesTableViewController.m in Sources */,
