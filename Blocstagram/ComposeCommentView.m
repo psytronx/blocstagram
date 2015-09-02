@@ -61,6 +61,7 @@
     
     self.textView.frame = self.bounds;
     
+    // Adjust color if in edit mode
     if (self.isWritingComment) {
         self.textView.backgroundColor = [UIColor colorWithRed:0.933 green:0.933 blue:0.933 alpha:1]; /*#eeeeee*/
         self.button.backgroundColor = [UIColor colorWithRed:0.345 green:0.318 blue:0.424 alpha:1]; /*#58516c*/
@@ -68,19 +69,20 @@
         CGFloat buttonX = CGRectGetWidth(self.bounds) - CGRectGetWidth(self.button.frame) - 20;
         self.button.frame = CGRectMake(buttonX, 10, 80, 20);
     } else {
+        // Not in edit mode
         self.textView.backgroundColor = [UIColor colorWithRed:0.898 green:0.898 blue:0.898 alpha:1]; /*#e5e5e5*/
         self.button.backgroundColor = [UIColor colorWithRed:0.6 green:0.6 blue:0.6 alpha:1]; /*#999999*/
         
         self.button.frame = CGRectMake(10, 10, 80, 20);
     }
     
+    // Define exclusion path for button, so that text wraps around it
     CGSize buttonSize = self.button.frame.size;
     buttonSize.height += 20;
     buttonSize.width += 20;
     CGFloat blockX = CGRectGetWidth(self.textView.bounds) - buttonSize.width;
     CGRect areaToBlockText = CGRectMake(blockX, 0, buttonSize.width, buttonSize.height);
     UIBezierPath *buttonPath = [UIBezierPath bezierPathWithRect:areaToBlockText];
-    
     self.textView.textContainer.exclusionPaths = @[buttonPath];
 }
 
